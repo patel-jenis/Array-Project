@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootsrap.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="vh-100 d-flex justify-content-center align-items-center bg-back">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <div>
+                    <div class="page-box">
+                        <h1 class="text-center mb-5 text-white">Vowels and Consonants Count</h1>
+                        <input type="text" id="input" class="w-100 input-field form-control" placeholder="Enter String">
+                        <label for="input" class="form-label"></label>
+                        <div class="ans-box">
+                            <h4 id="ans1"></h4>
+                        </div>
+                        <div class="ans-box mt-4">
+                            <h4 id="ans2"></h4>
+                        </div>
+                        <div class="text-center mt-5 d-flex align-items-center justify-content-center gap-4">
+                            <button class="btn btn-primary fs-5" id="submit-btn">Submit</button>
+                            <button class="btn btn-danger fs-5" id="reset-btn">Reset</button>
+                            <a href="./index.html" class="btn btn-dark px-3 fs-5">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/bootsrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#submit-btn").on("click", function () {
+                let input = document.getElementById("input").value;
+                let ans1 = document.getElementById("ans1");
+                let ans2 = document.getElementById("ans2");
+
+                if (input.trim() === "") {
+                    ans1.innerHTML = "Please Enter String";
+                    ans2.innerHTML = "Please Enter String";
+                    return;
+                }
+
+                let arr = input.toLowerCase().split("");
+                let vowel = [];
+                let consonant = [];
+                let vcount = 0;
+                let ccount = 0;
+
+                for(let i = 0; i < arr.length; i++){
+                    let val = arr[i];
+                    if((val == "a" ) || (val == "e") || (val == "i") || (val == "o") || (val == "u")){
+                        vowel.push(val);
+                        vcount++;
+                    } else {
+                        consonant.push(val);
+                        ccount++;
+                    }
+                }
+
+                ans1.innerHTML = `There are ${vcount} Vowels : ${vowel.join(", ")}`;
+                ans2.innerHTML = `There are ${ccount} Consonant : ${consonant.join(", ")}`;
+            })
+
+            $("#reset-btn").on("click", function () {
+                ans1.innerHTML = "";
+                ans2.innerHTML = "";
+                input.value = "";
+            })
+
+        })
+    </script>
+</body>
+
+</html>

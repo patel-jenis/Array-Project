@@ -20,7 +20,7 @@
 
 .outer-box {
     border: 1px solid black;
-    padding: 70px 0;
+    padding: 40px;
     width: 100%;
 }
 
@@ -84,10 +84,26 @@ input {
 }
 
 .form-control:focus {
-     box-shadow: 0 0 0 .25rem rgba(101, 101, 102, 0.657) !important;
+    box-shadow: 0 0 0 .25rem rgba(101, 101, 102, 0.657) !important;
     border-color: #58595b !important;
 }
 
 .btn-dark {
     background-color: rgb(94, 94, 94);
+}
+
+.input-box {
+  padding: 12px;
+  width: 59px;
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: rgb(214, 214, 214);
+}
+
+.input-box:focus {
+    box-shadow: 0 0 0 .25rem rgba(101, 101, 102, 0.657) !important;
+    /* border-color: #58595b !important; */
 }

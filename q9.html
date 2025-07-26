@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootsrap.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="vh-100 d-flex justify-content-center align-items-center bg-back">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <div>
+                    <div class="page-box">
+                        <h1 class="text-center mb-5 text-white">Prime Number</h1>
+                        <div id="boxes" class="d-flex flex-wrap gap-3 mb-4"></div>
+                        <div class="ans-box">
+                            <h4 id="ans"></h4>
+                        </div>
+                        <div class="text-center mt-5 d-flex align-items-center justify-content-center gap-4">
+                            <button class="btn btn-primary fs-5" id="random-btn">Rndom</button>
+                            <button class="btn btn-primary fs-5" id="submit-btn">Submit</button>
+                            <button class="btn btn-danger fs-5" id="reset-btn">Reset</button>
+                            <a href="./index.html" class="btn btn-dark px-3 fs-5">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/bootsrap.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            let num = parseInt(prompt("Enter How Many input Boxes you want?"));
+
+            if (num <= 0 || isNaN(num) || num > 30) {
+                alert("Invalid Input....");
+                num = 10;
+            }
+
+            let box = document.getElementById("boxes");
+
+            for (let i = 0; i < num; i++) {
+                box.innerHTML += `<input class="input-box" id="num${i}">`
+            }
+
+            $("#random-btn").on("click", function () {
+                for (let i = 0; i < num; i++) {
+                    document.getElementById(`num${i}`).value = parseInt(Math.random() * 100);
+                }
+                ans.innerHTML = "";
+            })
+
+            $("#submit-btn").on("click", function () {
+                let ans = document.getElementById("ans");
+                let prime = [];
+
+                for (let i = 0; i < num; i++) {
+                    if (document.getElementById(`num${i}`).value === "") {
+                        ans.innerHTML = "Please Enter Values";
+                        return;
+                    }
+                }
+
+                for (let i = 0; i < num; i++) {
+                    let primeVal = parseInt(document.getElementById(`num${i}`).value);
+                    let flag = 1;
+                    
+                    for (let j = 2; j < primeVal; j++) {
+                        if (primeVal % j === 0) {
+                            flag = 0;
+                            break;
+                        }
+                    }
+
+                    if (flag === 1) {
+                        prime.push(primeVal);
+                    }
+                }
+
+                ans.innerHTML = `The Prime Numbers Are : ${prime.join(", ")}`;
+            })
+
+            $("#reset-btn").on("click", function () {
+                ans.innerHTML = "";
+                for (let i = 0; i < num; i++) {
+                    document.getElementById(`num${i}`).value = "";
+                }
+            })
+
+        })
+    </script>
+</body>
+
+</html>
