@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootsrap.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="vh-100 d-flex justify-content-center align-items-center bg-back">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <div>
+                    <div class="page-box">
+                        <h1 class="text-center mb-5 text-white">Anagram String</h1>
+                        <input type="text" id="input1" class="w-100 input-field form-control" placeholder="Enter String">
+                        <label for="input1" class="form-label"></label>
+                        <input type="text" id="input2" class="w-100 input-field form-control" placeholder="Enter String">
+                        <label for="input2" class="form-label"></label>
+                        <div class="ans-box">
+                            <h4 id="ans"></h4>
+                        </div>
+                        <div class="text-center mt-5 d-flex align-items-center justify-content-center gap-4">
+                            <button class="btn btn-primary fs-5" id="submit-btn">Submit</button>
+                            <button class="btn btn-danger fs-5" id="reset-btn">Reset</button>
+                            <a href="./index.html" class="btn btn-dark px-3 fs-5">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/bootsrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#submit-btn").on("click", function () {
+                let input1 = document.getElementById("input1").value;
+                let input2 = document.getElementById("input2").value;
+                let ans = document.getElementById("ans");
+
+                $(".ans-box").removeClass("red green");
+
+                if (input1.trim() === "" || input2.trim() === "") {
+                    ans.innerHTML = "Please Enter String";
+                    return;
+                }
+                let str1 = input1.toLowerCase();
+                let str2 = input2.toLowerCase();
+
+                let sortStr1 = str1.split("").sort().join("");
+                let sortStr2 = str2.split("").sort().join("");
+
+                if (sortStr1 == sortStr2) {
+                    ans.innerHTML = "String are Anagram";
+                    $(".ans-box").addClass("green");
+                }
+                else {
+                    ans.innerHTML = "String are Not Anagram";
+                    $(".ans-box").addClass("red");
+                }
+            })
+
+            $("#reset-btn").on("click", function () {
+                ans.innerHTML = "";
+                input1.value = "";
+                input2.value = "";
+                $(".ans-box").removeClass("red green");
+            })
+
+        })
+    </script>
+</body>
+
+</html>
