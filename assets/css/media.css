@@ -1,0 +1,17 @@
+@media (max-width: 450px) {
+    .page-box {
+        padding: 40px 30px;
+    }
+
+    .outer-box {
+        padding: 40px 30px;
+    }
+
+    .inner-box {
+        padding: 20px 25px;
+    }
+
+    .ans-box {
+        height: 65px;
+    }
+}
