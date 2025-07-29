@@ -19,7 +19,6 @@
 }
 
 .outer-box {
-    /* border: 1px solid black; */
     padding: 40px;
     width: 100%;
     background: rgba(255, 255, 255, 0.09);
@@ -62,7 +61,6 @@
 }
 
 input {
-    /* padding: 12px !important; */
     border-radius: 5px;
     font-size: 16px !important;
     height: 50px !important;
@@ -71,7 +69,6 @@ input {
 .ans-box {
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.386);
-    /* padding: 12px !important; */
     height: 50px;
     background-color: rgba(214, 214, 214, 0.389);
     border-radius: 5px;
@@ -120,5 +117,4 @@ input {
 
 .input-box:focus {
     box-shadow: 0 0 0 .25rem rgba(101, 101, 102, 0.657) !important;
-    /* border-color: #58595b !important; */
 }

@@ -76,16 +76,9 @@
                     return x - y;
                 })
 
-                let val = arr[0];
-                let arr1 = [];
+                let uniqueValues = [...new Set(arr)];
 
-                for (let i = 1; i < arr.length; i++) {
-                    if (val != arr[i]) {
-                        arr1.push(arr[i]);
-                        val = arr[i];
-                    }
-                }
-                ans.innerHTML = `Non Duplicate Elements Are : ${arr1}`;
+                ans.innerHTML = `Unique Values: ${uniqueValues.join(", ")}`;
             })
 
             $("#reset-btn").on("click", function () {
